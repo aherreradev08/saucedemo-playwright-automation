@@ -9,6 +9,7 @@ import { ProductPage } from '../pages/ProductPage.js';
 export const test = base.extend({
 	loginPage: async ({ page }, use) => {
 		const loginPage = new LoginPage(page);
+		await loginPage.goto();
 		await use(loginPage);
 	},
 
