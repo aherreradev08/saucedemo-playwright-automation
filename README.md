@@ -32,7 +32,6 @@ This project covers key user flows on SauceDemo, including:
 │   ├── InventoryPage.ts
 │   ├── CartPage.ts
 │   └── CheckoutPage.ts
-├── fixtures/              # Custom fixtures / test data
 ├── playwright.config.ts
 ├── package.json
 └── README.md
