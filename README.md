@@ -1,157 +1,136 @@
-SauceDemo Playwright Automation Tests
+# SauceDemo Playwright Automation
 
-Automated end-to-end tests for SauceDemo using Playwright and TypeScript.
+Automated end-to-end tests for the [SauceDemo](https://www.saucedemo.com/) sample e-commerce site, built with [Playwright Test](https://playwright.dev/) and TypeScript.
 
-📌 Overview
+## Overview
 
-This project demonstrates UI automation testing for the SauceDemo web application. It covers common e-commerce user flows such as logging in, browsing products, adding items to the cart, and completing a checkout.
+This project covers key user flows on SauceDemo, including:
 
-The project is intended for learning and demonstrating best practices in Playwright test automation.
+- Login (valid, invalid, locked-out user)
+- Product listing and sorting
+- Add/remove items from cart
+- Checkout flow (information, overview, confirmation)
+- Logout
 
-🛠️ Tech Stack
-Playwright — End-to-end browser automation
-TypeScript — Programming language
-Node.js / npm — Runtime and package management
-SauceDemo — Application under test
-📂 Project Structure
+## Tech Stack
+
+- [Playwright Test](https://playwright.dev/docs/intro) — test runner and browser automation
+- TypeScript
+- Node.js
+
+## Project Structure
+
+```
 .
 ├── tests/
 │   ├── login.spec.ts
-│   ├── products.spec.ts
+│   ├── inventory.spec.ts
 │   ├── cart.spec.ts
 │   └── checkout.spec.ts
+├── pages/                 # Page Object Model classes
+│   ├── LoginPage.ts
+│   ├── InventoryPage.ts
+│   ├── CartPage.ts
+│   └── CheckoutPage.ts
+├── fixtures/              # Custom fixtures / test data
 ├── playwright.config.ts
 ├── package.json
-├── package-lock.json
 └── README.md
+```
 
+> Adjust this tree to match your actual folder layout.
 
-Update the file names above to match the actual structure of your project.
+## Prerequisites
 
-🚀 Getting Started
-Prerequisites
+- [Node.js](https://nodejs.org/) v18 or later
+- npm (comes with Node.js)
 
-Make sure you have the following installed:
+## Installation
 
-Node.js
-npm
-Git
-Installation
-
-Clone the repository:
-
-git clone <your-repository-url>
-cd <your-project-folder>
-
-
-Install the project dependencies:
-
+```bash
+git clone https://github.com/<your-username>/<your-repo>.git
+cd <your-repo>
 npm install
-
-
-Install the Playwright browsers:
-
 npx playwright install
+```
 
-▶️ Running the Tests
+## Running Tests
 
 Run all tests:
 
+```bash
 npx playwright test
-
-
-Run tests in headed mode:
-
-npx playwright test --headed
-
+```
 
 Run a specific test file:
 
+```bash
 npx playwright test tests/login.spec.ts
+```
 
+Run tests in headed mode (see the browser):
 
-Run tests using a specific browser:
+```bash
+npx playwright test --headed
+```
 
+Run tests in a specific browser:
+
+```bash
 npx playwright test --project=chromium
+```
 
-📊 Test Reports
+Run tests in debug mode:
 
-After a test run, open the Playwright HTML report with:
-
-npx playwright show-report
-
-
-The report provides information about passed and failed tests, execution time, screenshots, traces, and other debugging details.
-
-🧪 Test Scenarios
-
-The automation suite can cover scenarios including:
-
-User login with valid credentials
-Login validation with invalid credentials
-Product listing and sorting
-Adding products to the cart
-Removing products from the cart
-Verifying cart contents
-Checkout information
-Completing an order
-Verifying successful checkout
-User logout
-🔐 Test Credentials
-
-SauceDemo provides test accounts that can be used for automation.
-
-Example:
-
-Username: standard_user
-Password: secret_sauce
-
-
-For additional test users and scenarios, refer to the SauceDemo application.
-
-⚙️ Configuration
-
-Playwright configuration is managed through:
-
-playwright.config.ts
-
-
-Typical configuration options include:
-
-Base URL
-Browser projects
-Test timeout
-Retries
-Parallel execution
-Screenshots
-Video recording
-Trace collection
-HTML reporting
-🐞 Debugging
-
-Run tests with the Playwright Inspector:
-
+```bash
 npx playwright test --debug
+```
 
+## Viewing the Test Report
 
-Run with tracing enabled through the Playwright configuration or use the trace viewer to investigate failed tests.
+After a test run, view the HTML report:
 
-📈 Future Improvements
+```bash
+npx playwright show-report
+```
 
-Possible improvements for this project include:
+## Test Users
 
-Implementing the Page Object Model (POM)
-Adding API testing
-Adding more negative test scenarios
-Improving test data management
-Adding CI/CD integration
-Running tests across multiple browsers
-Adding test tags for smoke and regression suites
-Improving reporting and test artifacts
-🤝 Contributing
+SauceDemo provides several standard test accounts (password for all: `secret_sauce`):
 
-Contributions and suggestions are welcome. Feel free to fork the repository, create a feature branch, and submit a pull request.
+| Username                | Behavior                          |
+|-------------------------|------------------------------------|
+| `standard_user`         | Normal login flow                  |
+| `locked_out_user`       | Login blocked                      |
+| `problem_user`          | UI/behavior glitches                |
+| `performance_glitch_user` | Slow responses                   |
+| `error_user`            | Triggers errors during checkout    |
+| `visual_user`           | Visual/layout differences          |
 
-📄 License
+## Configuration
 
-This project is intended for educational and demonstration purposes.
+Key settings live in `playwright.config.ts`, including:
+
+- Base URL: `https://www.saucedemo.com`
+- Browsers: Chromium, Firefox, WebKit
+- Retries, timeouts, and reporter settings
+- Screenshot/video capture on failure
+
+## CI/CD
+
+If you're running this in CI (e.g., GitHub Actions), add a badge and note here once configured:
+
+```bash
+npx playwright test --reporter=github
+```
+
+## Contributing
+
+1. Fork the repo
+2. Create a feature branch (`git checkout -b feature/my-test`)
+3. Commit your changes
+4. Open a pull request
+
+## License
+
+[MIT](LICENSE)
