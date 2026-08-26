@@ -1,6 +1,6 @@
 # SauceDemo Playwright Automation
 
-Automated end-to-end tests for the [SauceDemo](https://www.saucedemo.com/) sample e-commerce site, built with [Playwright Test](https://playwright.dev/) and TypeScript.
+Automated end-to-end tests for the [SauceDemo](https://www.saucedemo.com/) sample e-commerce site, built with [Playwright Test](https://playwright.dev/) and JavaScript.
 
 ## Overview
 
@@ -15,7 +15,7 @@ This project covers key user flows on SauceDemo, including:
 ## Tech Stack
 
 - [Playwright Test](https://playwright.dev/docs/intro) — test runner and browser automation
-- TypeScript
+- JavaScript
 - Node.js
 
 ## Project Structure
@@ -23,16 +23,16 @@ This project covers key user flows on SauceDemo, including:
 ```
 .
 ├── tests/
-│   ├── login.spec.ts
-│   ├── inventory.spec.ts
-│   ├── cart.spec.ts
-│   └── checkout.spec.ts
+│   ├── login.spec.js
+│   ├── inventory.spec.js
+│   ├── cart.spec.js
+│   └── checkout.spec.js
 ├── pages/                 # Page Object Model classes
-│   ├── LoginPage.ts
-│   ├── InventoryPage.ts
-│   ├── CartPage.ts
-│   └── CheckoutPage.ts
-├── playwright.config.ts
+│   ├── LoginPage.js
+│   ├── InventoryPage.js
+│   ├── CartPage.js
+│   └── CheckoutPage.js
+├── playwright.config.js
 ├── package.json
 └── README.md
 ```
@@ -64,7 +64,7 @@ npx playwright test
 Run a specific test file:
 
 ```bash
-npx playwright test tests/login.spec.ts
+npx playwright test tests/login.spec.js
 ```
 
 Run tests in headed mode (see the browser):
@@ -108,7 +108,7 @@ SauceDemo provides several standard test accounts (password for all: `secret_sau
 
 ## Configuration
 
-Key settings live in `playwright.config.ts`, including:
+Key settings live in `playwright.config.js`, including:
 
 - Base URL: `https://www.saucedemo.com`
 - Browsers: Chromium, Firefox, WebKit
