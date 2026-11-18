@@ -26,12 +26,16 @@ This project covers key user flows on SauceDemo, including:
 │   ├── login.spec.js
 │   ├── inventory.spec.js
 │   ├── cart.spec.js
+│   ├── product.spec.js
 │   └── checkout.spec.js
 ├── pages/                 # Page Object Model classes
 │   ├── LoginPage.js
 │   ├── InventoryPage.js
 │   ├── CartPage.js
+│   ├── ProductPage.js
 │   └── CheckoutPage.js
+├── fixtures/
+│   └── test.js            # Custom fixtures
 ├── playwright.config.js
 ├── package.json
 └── README.md
