@@ -26,7 +26,7 @@ test.describe('Checkout', () => {
 		);
 	});
 	test('E026 - Checkout with an empty last name', async ({ checkoutPage }) => {
-		await checkoutPage.fillCheckoutInformation('John', '', '123');
+		await checkoutPage.fillCheckoutInformation('John', '', '1234');
 		await checkoutPage.continueToOverview();
 		await expect(checkoutPage.errorMessage).toHaveText(
 			/Last Name is required/i,
